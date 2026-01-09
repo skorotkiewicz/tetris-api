@@ -19,10 +19,10 @@ pub fn build_router(state: AppState) -> Router {
 
     // Routes that require authentication
     let protected_routes = Router::new()
-        .route("/games/{session_id}", get(handlers::get_game))
-        .route("/games/{session_id}", delete(handlers::delete_game))
-        .route("/games/{session_id}/action", post(handlers::perform_action))
-        .route("/games/{session_id}/tick", post(handlers::tick))
+        .route("/games/:session_id", get(handlers::get_game))
+        .route("/games/:session_id", delete(handlers::delete_game))
+        .route("/games/:session_id/action", post(handlers::perform_action))
+        .route("/games/:session_id/tick", post(handlers::tick))
         .layer(middleware::from_fn_with_state(
             state.clone(),
             auth_middleware,

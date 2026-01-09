@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+	--bg-primary: #0a0a0f;
+	--bg-secondary: #12121a;
+	--bg-tertiary: #1a1a25;
+	--accent: #6366f1;
+	--accent-glow: rgba(99, 102, 241, 0.3);
+	--text-primary: #f0f0f5;
+	--text-secondary: #8888a0;
+	--cell-empty: #1e1e2a;
+	--cell-border: #2a2a3a;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+	background: var(--bg-primary);
+	color: var(--text-primary);
+	min-height: 100vh;
+}
+
+/* Piece Colors - Classic Tetris palette with modern twist */
+.piece-I {
+	background: linear-gradient(135deg, #00d4ff, #0099cc);
+	box-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
+}
+.piece-O {
+	background: linear-gradient(135deg, #ffd000, #cc9900);
+	box-shadow: 0 0 8px rgba(255, 208, 0, 0.4);
+}
+.piece-T {
+	background: linear-gradient(135deg, #b366ff, #8833cc);
+	box-shadow: 0 0 8px rgba(179, 102, 255, 0.4);
+}
+.piece-S {
+	background: linear-gradient(135deg, #66ff66, #33cc33);
+	box-shadow: 0 0 8px rgba(102, 255, 102, 0.4);
+}
+.piece-Z {
+	background: linear-gradient(135deg, #ff6666, #cc3333);
+	box-shadow: 0 0 8px rgba(255, 102, 102, 0.4);
+}
+.piece-J {
+	background: linear-gradient(135deg, #6699ff, #3366cc);
+	box-shadow: 0 0 8px rgba(102, 153, 255, 0.4);
+}
+.piece-L {
+	background: linear-gradient(135deg, #ff9933, #cc6600);
+	box-shadow: 0 0 8px rgba(255, 153, 51, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
+}
+
+@keyframes lineClear {
+	0% {
+		transform: scaleX(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scaleX(1.05);
+		opacity: 0.8;
+		background: white;
+	}
+	100% {
+		transform: scaleX(0);
+		opacity: 0;
+	}
+}
+
+.animate-fade-in {
+	animation: fadeIn 0.3s ease-out;
+}
+
+.animate-pulse-slow {
+	animation: pulse 2s ease-in-out infinite;
+}
+
+/* Glass effect */
+.glass {
+	background: rgba(18, 18, 26, 0.8);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+}
